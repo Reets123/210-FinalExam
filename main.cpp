@@ -85,3 +85,22 @@ void displayCoffeeBooth(CoffeeNode* head) {
         while (temp) {
             cout << temp->customerName << " (" << temp->drinkOrder << ") ";
             temp = temp->next;
+         }
+        cout << endl;
+    }
+}
+
+void simulateMuffinBooth(deque<MuffinCustomer>& muffinQueue) {
+    if (!muffinQueue.empty()) {
+        cout << "Muffin Booth serving: " << muffinQueue.front().customerName << " (" << muffinQueue.front().muffinOrder << ")" << endl;
+        muffinQueue.pop_front();
+    }
+    if (rand() % 2 == 0) { // 50% chance to add a new customer
+        int randomIndex = rand() % NUM_CUSTOMERS;
+        MuffinCustomer newCustomer = {customerNames[randomIndex], muffinOrders[rand() % NUM_MUFFINS]};
+        muffinQueue.push_back(newCustomer);
+        cout << "New customer joined Muffin Booth: " << newCustomer.customerName << " (" << newCustomer.muffinOrder << ")\n";
+    }
+}
+
+void simulateBraceletBooth(vector<Bracel
