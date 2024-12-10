@@ -44,4 +44,18 @@ const int NUM_CANDIES = 5;
 string customerNames[NUM_CUSTOMERS] = {"Alice", "Fred", "Cade", "Rex", "Ethan"};
 string drinkOrders[NUM_CUSTOMERS] = {"Latte", "Espresso", "Cappuccino", "Mocha", "Americano"};
 string muffinOrders[NUM_MUFFINS] = {"Chocolate Muffin", "Blueberry Muffin", "Banana Muffin", "Red velvet Muffin", "Pumpkin Muffin"};
-string braceletOrders[NUM_BRACELET
+string braceletOrders[NUM_BRACELETS] = {"Friendship Band", "Charm Bracelet", "Beaded Bracelet", "Leather Bracelet", "Ribbon Bracelet"};
+string candyOrders[NUM_CANDIES] = {"Gummy Bears", "Chocolate Bar", "Lollipop", "Skittles", "Marshmallows"};
+
+CoffeeNode* createNode(string name, string order) {
+    CoffeeNode* newNode = new CoffeeNode();
+    newNode->customerName = name;
+    newNode->drinkOrder = order;
+    newNode->next = nullptr;
+    return newNode;
+}
+
+void enqueue(CoffeeNode*& head, string name, string order) {
+    CoffeeNode* newNode = creatNode(name, order);
+    if (!head) {
+        head
