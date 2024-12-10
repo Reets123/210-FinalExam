@@ -130,4 +130,23 @@ void simulateCandyBooth(CandyCustomer candyQueue[], int& count) {
             candyQueue[count++] = {customerNames[randomIndex], candyOrders[rand() % NUM_CANDIES]};
             cout << "New customer joined Candy Booth: " << candyQueue[count - 1].customerName << " (" << candyQueue[count - 1].candyOrder << ")\n";
         } else {
-            cout << "Candy Boot
+            cout << "Candy Booth is full.\n";
+        }
+    }
+}
+
+int main() {
+    srand(static_cast<unsigned int>(time(0)));
+
+    CoffeeNode* coffeeBoothQueue = nullptr;
+    for (int i = 0; i < 3; ++i) { // 3 customers
+        enqueue(coffeeBoothQueue, customerNames[rand() % NUM_CUSTOMERS], drinkOrders[rand() % NUM_CUSTOMERS]);
+    }
+
+    deque<MuffinCustomer> muffinQueue;
+    vector<BraceletCustomer> braceletQueue;
+    CandyCustomer candyQueue[NUM_CANDIES];
+    int candyCount = 0;
+
+    for (int round = 1; round <= 10; ++round) {
+        cout << "Round " << roun
