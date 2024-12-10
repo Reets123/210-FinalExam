@@ -159,4 +159,19 @@ int main() {
         }
         if (rand() % 2 == 0) { // 50% chance
             enqueue(coffeeBoothQueue, customerNames[rand() % NUM_CUSTOMERS], drinkOrders[rand() % NUM_CUSTOMERS]);
-            cout << "New customer joine
+            cout << "New customer joined Coffee Booth.\n";
+        }
+
+        // Muffin Booth
+        simulateMuffinBooth(muffinQueue);
+
+        // Bracelet Booth
+        simulateBraceletBooth(braceletQueue);
+
+        // Candy Booth
+        simulateCandyBooth(candyQueue, candyCount);
+
+        // Display queues
+        displayCoffeeBooth(coffeeBoothQueue);
+        cout << "Current Muffin Booth queue size: " << muffinQueue.size() << endl;
+        cout << "Current Bracelet 
