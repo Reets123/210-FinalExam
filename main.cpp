@@ -58,4 +58,30 @@ CoffeeNode* createNode(string name, string order) {
 void enqueue(CoffeeNode*& head, string name, string order) {
     CoffeeNode* newNode = creatNode(name, order);
     if (!head) {
-        head
+        head= newNode;
+    } else {
+        CoffeeNode* temp = head;
+        while (temp->next) {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+}
+
+void dequeue(CoffeeNode*& head) {
+    if (head) {
+        CoffeeNode* temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
+
+void displayCoffeeBooth(CoffeeNode* head) {
+    if (!head) {
+        cout << "Coffee Booth: No customers in queue.\n";
+    } else {
+        cout << "Coffee Booth Queue: ";
+        CoffeeNode* temp = head;
+        while (temp) {
+            cout << temp->customerName << " (" << temp->drinkOrder << ") ";
+            temp = temp->next;
