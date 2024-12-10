@@ -118,4 +118,16 @@ void simulateBraceletBooth(vector<BraceletCustomer>& braceletQueue) {
 
 void simulateCandyBooth(CandyCustomer candyQueue[], int& count) {
     if (count > 0) {
-        cout << "Candy Booth serving:
+        cout << "Candy Booth serving:" << candyQueue[0].customerName << " (" << candyQueue[0].candyOrder << ")" << endl;
+        for (int i = 1; i < count; ++i) {
+            candyQueue[i - 1] = candyQueue[i]; 
+        }
+        count--;
+    }
+    if (rand() % 2 == 0) { // 50% chance fro new customer
+        if (count < NUM_CANDIES) {
+            int randomIndex = rand() % NUM_CUSTOMERS;
+            candyQueue[count++] = {customerNames[randomIndex], candyOrders[rand() % NUM_CANDIES]};
+            cout << "New customer joined Candy Booth: " << candyQueue[count - 1].customerName << " (" << candyQueue[count - 1].candyOrder << ")\n";
+        } else {
+            cout << "Candy Boot
