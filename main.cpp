@@ -56,7 +56,7 @@ CoffeeNode* createNode(string name, string order) {
 }
 
 void enqueue(CoffeeNode*& head, string name, string order) {
-    CoffeeNode* newNode = creatNode(name, order);
+    CoffeeNode* newNode = createNode(name, order);
     if (!head) {
         head= newNode;
     } else {
@@ -174,4 +174,16 @@ int main() {
         // Display queues
         displayCoffeeBooth(coffeeBoothQueue);
         cout << "Current Muffin Booth queue size: " << muffinQueue.size() << endl;
-        cout << "Current Bracelet 
+        cout << "Current Bracelet Booth queue size: " << braceletQueue.size() << endl;
+        cout << "Current Candy Booth queue size: " << candyCount << endl;
+
+        cout << "------------------------------------------\n";
+    }
+
+    // Clean up 
+    while (coffeeBoothQueue) {
+        dequeue(coffeeBoothQueue);
+    }
+
+    return 0;
+}
