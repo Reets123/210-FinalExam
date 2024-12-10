@@ -103,4 +103,19 @@ void simulateMuffinBooth(deque<MuffinCustomer>& muffinQueue) {
     }
 }
 
-void simulateBraceletBooth(vector<Bracel
+void simulateBraceletBooth(vector<BraceletCustomer>& braceletQueue) {
+    if (!braceletQueue.empty()) {
+        cout << "Bracelet Booth serving: " << braceletQueue.front().customerName << " (" << braceletQueue.front().braceletOrder << ")" << endl;
+        braceletQueue.erase(braceletQueue.begin());
+    }
+    if (rand() % 2 == 0) { // 50% chance to add a new customer
+        int randomIndex = rand() % NUM_CUSTOMERS;
+        BraceletCustomer newCustomer = {customerNames[randomIndex], braceletOrders[rand() % NUM_BRACELETS]};
+        braceletQueue.push_back(newCustomer);
+        cout << "New customer joined Bracelet Booth: " << newCustomer.customerName << " (" << newCustomer.braceletOrder << ")\n";
+    }
+}
+
+void simulateCandyBooth(CandyCustomer candyQueue[], int& count) {
+    if (count > 0) {
+        cout << "Candy Booth serving:
