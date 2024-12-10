@@ -149,4 +149,14 @@ int main() {
     int candyCount = 0;
 
     for (int round = 1; round <= 10; ++round) {
-        cout << "Round " << roun
+        cout << "Round " << round << ":\n";
+
+        if (coffeeBoothQueue) {
+            cout << "Coffee Booth serving: " << coffeeBoothQueue->customerName << " (" << coffeeBoothQueue->drinkOrder << ")" << endl;
+            dequeue(coffeeBoothQueue);
+        } else {
+            cout << "Coffee Booth: No customers to serve.\n";
+        }
+        if (rand() % 2 == 0) { // 50% chance
+            enqueue(coffeeBoothQueue, customerNames[rand() % NUM_CUSTOMERS], drinkOrders[rand() % NUM_CUSTOMERS]);
+            cout << "New customer joine
