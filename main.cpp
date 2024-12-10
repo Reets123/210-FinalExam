@@ -32,7 +32,7 @@ struct BraceletCustomer {
 // Struct for Candies 
 struct CandyCustomer {
     string customerName;
-    strin candyOrder;
+    string candyOrder;
 };
 
 // the number of different items each will have
@@ -47,6 +47,7 @@ string muffinOrders[NUM_MUFFINS] = {"Chocolate Muffin", "Blueberry Muffin", "Ban
 string braceletOrders[NUM_BRACELETS] = {"Friendship Band", "Charm Bracelet", "Beaded Bracelet", "Leather Bracelet", "Ribbon Bracelet"};
 string candyOrders[NUM_CANDIES] = {"Gummy Bears", "Chocolate Bar", "Lollipop", "Skittles", "Marshmallows"};
 
+// coffee booth functions 
 CoffeeNode* createNode(string name, string order) {
     CoffeeNode* newNode = new CoffeeNode();
     newNode->customerName = name;
@@ -90,6 +91,7 @@ void displayCoffeeBooth(CoffeeNode* head) {
     }
 }
 
+// muffin booth deque
 void simulateMuffinBooth(deque<MuffinCustomer>& muffinQueue) {
     if (!muffinQueue.empty()) {
         cout << "Muffin Booth serving: " << muffinQueue.front().customerName << " (" << muffinQueue.front().muffinOrder << ")" << endl;
@@ -103,6 +105,7 @@ void simulateMuffinBooth(deque<MuffinCustomer>& muffinQueue) {
     }
 }
 
+// bracelet booth vector
 void simulateBraceletBooth(vector<BraceletCustomer>& braceletQueue) {
     if (!braceletQueue.empty()) {
         cout << "Bracelet Booth serving: " << braceletQueue.front().customerName << " (" << braceletQueue.front().braceletOrder << ")" << endl;
@@ -116,6 +119,7 @@ void simulateBraceletBooth(vector<BraceletCustomer>& braceletQueue) {
     }
 }
 
+// candy booth array
 void simulateCandyBooth(CandyCustomer candyQueue[], int& count) {
     if (count > 0) {
         cout << "Candy Booth serving:" << candyQueue[0].customerName << " (" << candyQueue[0].candyOrder << ")" << endl;
